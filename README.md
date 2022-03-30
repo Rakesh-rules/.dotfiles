@@ -6,21 +6,31 @@ This repository has the setup and dotfiles necessary for my personal setup.
 
 ### Inital
 
-> Execute below commands in powershell with Administrator. 
+> Update windows and Execute below commands in powershell with Administrator. 
 
-**Step 1 - Enable the Windows Subsystem for Linux**
+**Step 1 - Update WSL**
 ```
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+wsl --update
 ```
-**Step 2 - Enable Virtual Machine feature**
+
+**Step 2 - Enable WSL features and sets wSL2 as default**
 ```
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+wsl --install
 ```
-**Step 3 - Set WSL 2 as your default version**
+> Reboot system
+
+**Step 3 - Install linux distro**
 ```
-wsl --set-default-version 2
+wsl --install -d Ubuntu
 ```
-**Step 4 - Install Ubuntu (or any available distribution of choice)
+
+**Step 4 - Clone repo**
 ```
-wsl --install -d ubuntu
+git clone https://github.com/Rakesh-rules/.dotfiles.git
+```
+
+**Step 5 - Run installation script**
+```
+cd .dotfiles
+./setup.sh
 ```
