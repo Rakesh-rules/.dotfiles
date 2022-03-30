@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-<<Block_comment
 echo "Installing updates"
 sudo apt update && sudo apt upgrade
 echo "Enter git email ID:"
@@ -9,4 +8,3 @@ git config --global user.email $gitEmailID
 echo "Enter git user name:"
 read gitUserName
 git config --global user.name $gitUserName
-Block_comment
