@@ -29,8 +29,16 @@ wsl --install -d Ubuntu
 git clone https://github.com/Rakesh-rules/.dotfiles.git
 ```
 
-**Step 5 - Run installation script**
+**Step 5 - Install Zsh and make default shell**
+```
+sudo apt install zsh
+```
+
+**Step 6 - Run installation script**
+> Note : The setup scripts installs softwares necessary for my development setup and replaces local dotfiles with the ones in this repo.
+> feel free to fork and edit as needed.
 ```
 cd .dotfiles
 ./setup.sh
 ```
+
