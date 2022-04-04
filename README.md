@@ -32,6 +32,7 @@ git clone https://github.com/Rakesh-rules/.dotfiles.git
 **Step 5 - Install Zsh and make default shell**
 ```
 sudo apt install zsh
+zsh
 ```
 
 **Step 6 - Run installation script**
