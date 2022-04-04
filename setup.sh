@@ -5,7 +5,7 @@
 sudo apt update && sudo apt upgrade
 
 ### Git email username setup
-
+git config --global credential.helper store
 echo "Enter git email ID:"
 read gitEmailID
 git config --global user.email $gitEmailID
