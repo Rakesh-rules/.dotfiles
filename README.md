@@ -40,7 +40,7 @@ sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-**Step 6 - Run installation script**
+**Step 7 - Run installation script**
 > Note : The setup scripts installs softwares necessary for my development setup and replaces local dotfiles with the ones in this repo.
 > feel free to fork and edit as needed.
 ```
