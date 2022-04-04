@@ -23,6 +23,7 @@ ln -s "$dir_path/.zshrc" ~/.zshrc
 zsh_source(){
 source ~/.zshrc; clear
 }	
+zsh_source
 
 ### Node Installation
 
