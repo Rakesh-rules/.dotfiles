@@ -13,10 +13,8 @@ echo "Enter git user name:"
 read gitUserName
 git config --global user.name $gitUserName
 
-### zsh Installation and setup
+### zsh setup
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-clear
 rm ~/.zshrc
 dir_path=$(dirname $0)
 ln -s "$dir_path/.zshrc" ~/.zshrc
