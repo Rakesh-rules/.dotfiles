@@ -16,7 +16,7 @@ git config --global user.name $gitUserName
 ### zsh setup
 
 rm ~/.zshrc
-dir_path=$(dirname $(realpath $0)
+dir_path=$(dirname $(realpath $0))
 ln -s "$dir_path/.zshrc" ~/.zshrc
 zsh_source(){
 source ~/.zshrc; clear
