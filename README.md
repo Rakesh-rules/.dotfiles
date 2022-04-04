@@ -29,9 +29,14 @@ wsl --install -d Ubuntu
 git clone https://github.com/Rakesh-rules/.dotfiles.git
 ```
 
-**Step 5 - Install Zsh and make default shell**
+**Step 5 - Install zsh**
 ```
 sudo apt install zsh
+```
+
+**Step 6 - Make zsh default**
+
+```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
@@ -42,4 +47,3 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 cd .dotfiles
 ./setup.sh
 ```
-
