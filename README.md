@@ -32,7 +32,7 @@ git clone https://github.com/Rakesh-rules/.dotfiles.git
 **Step 5 - Install Zsh and make default shell**
 ```
 sudo apt install zsh
-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 **Step 6 - Run installation script**
