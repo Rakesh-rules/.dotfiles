@@ -20,7 +20,6 @@ clear
 rm ~/.zshrc
 dir_path=$(dirname $0)
 ln -s "$dir_path/.zshrc" ~/.zshrc
-Block_comment
 zsh_source(){
 source ~/.zshrc; clear
 }	
