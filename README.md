@@ -6,7 +6,7 @@ This repository has the setup and dotfiles necessary for my wsl dev setup.
 
 ### Inital
 
-> Update windows and Execute below commands in powershell with Administrator. 
+> Update windows and Execute below commands in CMD/powershell with Administrator. 
 
 #### **Step 1 - Update WSL**
 ```
@@ -23,6 +23,7 @@ wsl --install
 ```
 wsl --install -d Ubuntu
 ```
+> After Ubuntu opens. Setup username, password and run below commands.
 
 #### **Step 4 - Clone repo**
 ```
