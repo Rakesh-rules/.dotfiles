@@ -8,33 +8,33 @@ This repository has the setup and dotfiles necessary for my personal setup.
 
 > Update windows and Execute below commands in powershell with Administrator. 
 
-**Step 1 - Update WSL**
+#### **Step 1 - Update WSL**
 ```
 wsl --update
 ```
 
-**Step 2 - Enable WSL features and sets wSL2 as default**
+#### **Step 2 - Enable WSL features and sets wSL2 as default**
 ```
 wsl --install
 ```
 > Reboot system
 
-**Step 3 - Install linux distro**
+#### **Step 3 - Install linux distro**
 ```
 wsl --install -d Ubuntu
 ```
 
-**Step 4 - Clone repo**
+#### **Step 4 - Clone repo**
 ```
 git clone https://github.com/Rakesh-rules/.dotfiles.git
 ```
 
-**Step 5 - Install zsh**
+#### **Step 5 - Install zsh**
 ```
 sudo apt install zsh
 ```
 
-**Step 6 - Make zsh default**
+#### **Step 6 - Make zsh default**
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -47,3 +47,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 cd .dotfiles
 ./setup.sh
 ```
+
+## Troubleshoot
+
+* If you're like me and messed up your system with `rm -rf /` 😉
+ or need a fresh start in already installed distro, use below command and then [step3](##WSL).
+ ```
+ wsl --unregister Ubuntu
+ ```
+
