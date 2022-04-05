@@ -51,7 +51,7 @@ cd .dotfiles
 ## Troubleshoot
 
 * If you're like me and messed up your system with `rm -rf /` 😉
- or need a fresh start in already installed distro, use below command and then [step3](#**Step 3 - Install linux distro**).
+ or need a fresh start in already installed distro, use below command and then [step3](#**Step-3-\--Install-linux-distro**).
  ```
  wsl --unregister Ubuntu
  ```
