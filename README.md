@@ -1,6 +1,6 @@
 # .dotfiles
 
-This repository has the setup and dotfiles necessary for my personal setup.
+This repository has the setup and dotfiles necessary for my wsl dev setup.
 
 ## WSL 
 
