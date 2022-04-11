@@ -14,9 +14,11 @@ nvim +PackerSync
 
 git config --global credential.helper store
 echo "Enter git email ID:"
-git config --global user.email 
+read gitEmailID
+git config --global user.email $gitEmailID
 echo "Enter git user name:"
-git config --global user.name 
+read gitUserName
+git config --global user.name $gitUserName
 
 ### zsh setup
 
