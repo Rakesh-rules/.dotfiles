@@ -2,16 +2,21 @@
 
 ### Install updates and necessary packages
 
+sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update && sudo apt upgrade
+sudo apt install build-essential neovim neofetch unzip zip fzf
+
+### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy it up on my own)
+git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
+nvim +PackerSync
 
 ### Git email username setup
+
 git config --global credential.helper store
 echo "Enter git email ID:"
-read gitEmailID
-git config --global user.email $gitEmailID
+git config --global user.email 
 echo "Enter git user name:"
-read gitUserName
-git config --global user.name $gitUserName
+git config --global user.name 
 
 ### zsh setup
 
@@ -31,5 +36,8 @@ nvm install node
 nvm use node
 node -v
 
+### Cleanup
+
+sudo apt autoremove
 
 echo "🚀 Dev env Ready!!!"

@@ -19,7 +19,7 @@ wsl --install
 ```
 > Reboot system
 
-**Step 3 - Install linux distro**
+**Step 3 - Install linux**
 ```
 wsl --install -d Ubuntu
 ```
