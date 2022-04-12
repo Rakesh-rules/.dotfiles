@@ -9,6 +9,7 @@ sudo apt install build-essential neovim neofetch unzip zip fzf
 ### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy it up on my own)
 git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
 nvim +PackerSync
+ln -s ~/.dotfiles/user ~/.config/nvim/lua/user
 
 ### Git email username setup
 
