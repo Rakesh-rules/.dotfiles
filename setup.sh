@@ -5,7 +5,7 @@
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt update && sudo apt upgrade
-sudo apt install build-essential neovim neofetch unzip zip fzf lazygit python-neovim python3-neovim
+sudo apt install build-essential neovim neofetch unzip zip fzf lazygit python3-neovim
 
 ### zsh setup
 
