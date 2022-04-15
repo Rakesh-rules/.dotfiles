@@ -3,8 +3,9 @@
 ### Install updates and necessary packages
 
 sudo add-apt-repository ppa:neovim-ppa/stable
+sudo add-apt-repository ppa:lazygit-team/release
 sudo apt update && sudo apt upgrade
-sudo apt install build-essential neovim neofetch unzip zip fzf
+sudo apt install build-essential neovim neofetch unzip zip fzf lazygit
 
 ### zsh setup
 
