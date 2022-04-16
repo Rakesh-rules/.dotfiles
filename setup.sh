@@ -31,7 +31,7 @@ git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
 nvim +PackerSync
 ln -s ~/.dotfiles/user ~/.config/nvim/lua/user
 zsh_source
-nvim -c ":LspInstall html cssls tsserver pyright"
+nvim -c ":LspInstall html cssls tsserver pyright prosemd_lsp"
 nvim -c ":TSInstall html css javascript markdown tsx typescript"
 
 ### Git email username setup
