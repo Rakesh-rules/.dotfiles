@@ -38,7 +38,8 @@ conda create --name torch python=3.8 -y
 conda activate torch
 conda install ipykernel
 conda install nb_conda # jupyter support to new environment
-conda install pytorch cudatoolkit -c pytorch # pytorch install
+conda install pytorch torchvision cudatoolkit -c pytorch # pytorch install
+conda install tqdm
 python -m ipykernel install --user --name pytorch --display-name "Python 3.7 (pytorch)"
 
 ### Node Installation
@@ -53,8 +54,9 @@ zsh_source
 ## linter and formatter
 npm install -g prettier
 pip install --upgrade autopep8
+pip install flake8
 
-### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy it up on my own)
+### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy to do it up on my own)
 git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
 nvim +PackerSync
 ln -s ~/.dotfiles/user ~/.config/nvim/lua/user
