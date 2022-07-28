@@ -2,7 +2,7 @@
 
 ### Install updates and necessary packages
 
-sudo add-apt-repository ppa:neovim-ppa/stable
+sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt update && sudo apt upgrade
 sudo apt install build-essential neovim neofetch unzip zip fzf lazygit python3-neovim python3-pip
@@ -38,16 +38,16 @@ conda create --name torch python=3.8 -y
 conda activate torch
 conda install ipykernel
 conda install nb_conda # jupyter support to new environment
-conda install pytorch torchvision cudatoolkit -c pytorch # pytorch install
-conda install tqdm
-python -m ipykernel install --user --name pytorch --display-name "Python 3.7 (pytorch)"
+conda install pytorch torchvision torchtext cudatoolkit -c pytorch # pytorch install
+conda install tqdm matplotlib pandas spacy
+# python -m ipykernel install --user --name pytorch --display-name "Python 3.7 (pytorch)"
 
 ### Node Installation
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh 
 zsh_source
-nvm install node
-nvm use node
+nvm install --lts
+nvm use --lts
 node -v
 zsh_source
 
