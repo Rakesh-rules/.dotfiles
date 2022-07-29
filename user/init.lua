@@ -66,7 +66,7 @@ local config = {
       rainbow = true,
       symbols_outline = false,
       telescope = true,
-      vimwiki = false,
+      vimwiki = true,
       ["which-key"] = true,
     },
   },
@@ -93,6 +93,7 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      {"tpope/vim-surround"},
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
