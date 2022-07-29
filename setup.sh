@@ -58,6 +58,8 @@ pip install flake8
 
 ## Npm packages
 npm install -g @angular/cli
+npm install -g prettier
+npm insall -g eslint
 
 ### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy to do it up on my own)
 git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
