@@ -5,7 +5,7 @@
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt update && sudo apt upgrade
-sudo apt install build-essential neovim neofetch unzip zip fzf lazygit python3-neovim python3-pip
+sudo apt install build-essential neovim neofetch unzip zip fzf lazygit python3-neovim python3-pip 
 
 ### zsh setup
 
@@ -53,13 +53,13 @@ zsh_source
 
 ## linter and formatter
 npm install -g prettier
+npm insall -g eslint
 pip install --upgrade autopep8
 pip install flake8
 
+
 ## Npm packages
 npm install -g @angular/cli
-npm install -g prettier
-npm insall -g eslint
 
 ### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy to do it up on my own)
 git clone https://github.com/kabinspace/AstroVim ~/.config/nvim

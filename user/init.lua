@@ -66,7 +66,7 @@ local config = {
       rainbow = true,
       symbols_outline = false,
       telescope = true,
-      vimwiki = true,
+      vimwiki = false,
       ["which-key"] = true,
     },
   },
@@ -94,6 +94,17 @@ local config = {
       --   end,
       -- },
       {"tpope/vim-surround"},
+    --   {"vimwiki/vimwiki",
+    --   config = function()
+    --     vim.g.vimwiki_list = {
+    --       {
+    --         path = '~/Code/Piece-of-Mind/Piece-of-Mind',
+    --         syntax = 'markdown',
+    --         ext = '.md'
+    --       }
+    --     }
+    --   end
+    -- },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -133,6 +144,9 @@ local config = {
     packer = {
       compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
     },
+    telescope = {
+      defaults = { file_ignore_patterns = { "node_modules" }}
+    }
   },
 
   -- LuaSnip Options
