@@ -55,3 +55,7 @@ cd .dotfiles
   ```
   wsl --update
   ```
+
+# Credits
+
+- [AstroVim](https://github.com/AstroNvim/AstroNvim) - NeoVim configurations.
