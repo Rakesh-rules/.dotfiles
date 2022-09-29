@@ -60,6 +60,7 @@ pip install flake8
 
 ## Npm packages
 npm install -g @angular/cli
+npm install -g @ionic/cli
 
 ### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy to do it up on my own)
 git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
@@ -68,6 +69,12 @@ ln -s ~/.dotfiles/user ~/.config/nvim/lua/user
 zsh_source
 nvim -c ":LspInstall html cssls tsserver pyright prosemd_lsp eslint angularls"
 nvim -c ":TSInstall html css javascript markdown tsx typescript python"
+
+### NeoVim win32yank setup - For freezing issue when paste
+curl -sLo/tmp/win32yank.zip https://github.com/robertbrunhage/win32yank/releases/download/v0.0.5/win32yank-x64.zip
+unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+chmod +x /tmp/win32yank.exe
+sudo mv /tmp/win32yank.exe /usr/local/bin/
 
 ### Git email username setup
 

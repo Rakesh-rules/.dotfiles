@@ -18,7 +18,8 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "default_theme",
+  -- colorscheme = "default_theme",
+  colorscheme = "tokyonight",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -37,9 +38,31 @@ local config = {
   options = {
     opt = {
       relativenumber = true, -- sets vim.opt.relativenumber
+      clipboard = ""
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
+      neovide_fullscreen=true,
+      -- clipboard = {
+      --   name = "wslclipboard",
+      --   copy = {
+      --     ["+"] = "/usr/local/bin/win32yank.exe -i --crlf",
+      --     ["*"] = "/usr/local/bin/win32yank.exe -i --crlf"
+      --   },
+      --   paste = {
+      --     ["+"] = "/usr/local/bin/win32yank.exe -o --lf",
+      --     ["*"] = "/usr/local/bin/win32yank.exe -o --lf"
+      --   },
+      --   copy = {
+      --       ["+"] = "clip.exe",
+      --       ["*"] = "clip.exe"
+      --   },
+      --   paste = {
+      --       ["+"] = "clip.exe",
+      --       ["*"] = "clip.exe"
+      --   },
+      --   cache_enable = 1,
+      -- }
     },
   },
 
@@ -94,6 +117,34 @@ local config = {
       --   end,
       -- },
       {"tpope/vim-surround"},
+      {"folke/tokyonight.nvim"},
+      {"morhetz/gruvbox"},
+      {"abecodes/tabout.nvim",
+       config = function()
+        require('tabout').setup {
+          tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
+          backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
+          act_as_tab = true, -- shift content if tab out is not possible
+          act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+          default_tab = '<C-t>', -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+          default_shift_tab = '<C-d>', -- reverse shift default action,
+          enable_backwards = true, -- well ...
+          completion = true, -- if the tabkey is used in a completion pum
+          tabouts = {
+            {open = "'", close = "'"},
+            {open = '"', close = '"'},
+            {open = '`', close = '`'},
+            {open = '(', close = ')'},
+            {open = '[', close = ']'},
+            {open = '{', close = '}'}
+          },
+          ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+          exclude = {} -- tabout will ignore these filetypes
+        }
+        end,
+	      wants = {'nvim-treesitter'}, -- or require if not used so far
+	      before = {'completion-nvim'} -- if a completion plugin is using tabs load it before
+      }
     --   {"vimwiki/vimwiki",
     --   config = function()
     --     vim.g.vimwiki_list = {
