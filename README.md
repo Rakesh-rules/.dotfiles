@@ -15,7 +15,7 @@ wsl --install
 
 #### **Step 2 - Clone repo**
 ```
-git clone https://github.com/Rakesh-rules/.dotfiles.git
+git clone https://github.com/Rakes-me/.dotfiles.git
 ```
 
 #### **Step 3 - Install zsh**
