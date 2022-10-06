@@ -1,3 +1,9 @@
+--              AstroNvim Configuration Table
+-- All configuration changes should go inside of the table below
+
+-- You can think of a Lua "table" as a dictionary like data structure the
+-- normal format is "key = value". These also handle array like data structures
+-- where a value with no key simply has an implicit numeric key
 local config = {
 
   -- Configure AstroNvim updates
@@ -10,6 +16,8 @@ local config = {
     pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
     skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
+    auto_reload = false, -- automatically reload and sync packer after a successful update
+    auto_quit = false, -- automatically quit the current session after a successful update
     -- remotes = { -- easily add new remotes to track
     --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
     --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
@@ -43,37 +51,45 @@ local config = {
     g = {
       mapleader = " ", -- sets vim.g.mapleader
       neovide_fullscreen=true,
-      -- clipboard = {
-      --   name = "wslclipboard",
-      --   copy = {
-      --     ["+"] = "/usr/local/bin/win32yank.exe -i --crlf",
-      --     ["*"] = "/usr/local/bin/win32yank.exe -i --crlf"
-      --   },
-      --   paste = {
-      --     ["+"] = "/usr/local/bin/win32yank.exe -o --lf",
-      --     ["*"] = "/usr/local/bin/win32yank.exe -o --lf"
-      --   },
-      --   copy = {
-      --       ["+"] = "clip.exe",
-      --       ["*"] = "clip.exe"
-      --   },
-      --   paste = {
-      --       ["+"] = "clip.exe",
-      --       ["*"] = "clip.exe"
-      --   },
-      --   cache_enable = 1,
-      -- }
     },
+  },
+
+  -- If you need more control, you can use the function()...end notation
+  -- options = function(local_vim)
+  --   local_vim.opt.relativenumber = true
+  --   local_vim.g.mapleader = " "
+  --   local_vim.opt.whichwrap = vim.opt.whichwrap - { 'b', 's' } -- removing option from list
+  --   local_vim.opt.shortmess = vim.opt.shortmess + { I = true } -- add to option list
+  --
+  --   return local_vim
+  -- end,
+
+  -- Set dashboard header
+  header = {
+    " █████  ███████ ████████ ██████   ██████",
+    "██   ██ ██         ██    ██   ██ ██    ██",
+    "███████ ███████    ██    ██████  ██    ██",
+    "██   ██      ██    ██    ██   ██ ██    ██",
+    "██   ██ ███████    ██    ██   ██  ██████",
+    " ",
+    "    ███    ██ ██    ██ ██ ███    ███",
+    "    ████   ██ ██    ██ ██ ████  ████",
+    "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
+    "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
+    "    ██   ████   ████   ██ ██      ██",
   },
 
   -- Default theme configuration
   default_theme = {
+    -- set the highlight style for diagnostic messages
     diagnostics_style = { italic = true },
-    -- Modify the color table
+    -- Modify the color palette for the default theme
     colors = {
       fg = "#abb2bf",
+      bg = "#1e222a",
     },
-    plugins = { -- enable or disable extra plugin highlighting
+    -- enable or disable extra plugin highlighting
+    plugins = { 
       aerial = true,
       beacon = false,
       bufferline = true,
@@ -100,17 +116,98 @@ local config = {
     telescope_select = true,
   },
 
+  -- Diagnostics configuration (for vim.diagnostics.config({...}))
+  diagnostics = {
+    virtual_text = true,
+    underline = true,
+  },
+
+  -- Extend LSP configuration
+  lsp = {
+    -- enable servers that you already have installed without mason
+    servers = {
+      -- "pyright"
+    },
+    -- easily add or disable built in mappings added during LSP attaching
+    mappings = {
+      n = {
+        -- ["<leader>lf"] = false -- disable formatting keymap
+      },
+    },
+    -- add to the global LSP on_attach function
+    -- on_attach = function(client, bufnr)
+    -- end,
+
+    -- override the mason server-registration function
+    -- server_registration = function(server, opts)
+    --   require("lspconfig")[server].setup(opts)
+    -- end,
+
+    -- Add overrides for LSP server settings, the keys are the name of the server
+    ["server-settings"] = {
+      -- example for addings schemas to yamlls
+      -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
+      --   settings = {
+      --     yaml = {
+      --       schemas = {
+      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+      --       },
+      --     },
+      --   },
+      -- },
+      -- Example disabling formatting for a specific language server
+      -- gopls = { -- override table for require("lspconfig").gopls.setup({...})
+      --   on_attach = function(client, bufnr)
+      --     client.resolved_capabilities.document_formatting = false
+      --   end
+      -- }
+    },
+  },
+
+  -- Mapping data with "desc" stored directly by vim.keymap.set().
+  --
+  -- Please use this mappings table to set keyboard mapping since this is the
+  -- lower level configuration and more robust one. (which-key will
+  -- automatically pick-up stored data by this setting.)
+  mappings = {
+    -- first key is the mode
+    n = {
+      -- second key is the lefthand side of the map
+      -- mappings seen under group name "Buffer"
+      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
+      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
+      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+      -- quick save
+      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    },
+    t = {
+      -- setting a mapping to false will disable it
+      -- ["<esc>"] = false,
+    },
+  },
+
   -- Configure plugins
   plugins = {
-    -- Add plugins, the packer syntax without the "use"
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
       -- You can also add new plugins here as well:
+      -- Add plugins, the packer syntax without the "use"
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
+      --   event = "BufRead",
+      --   config = function()
+      --     require("lsp_signature").setup()
+      --   end,
+      -- },
+
+      -- We also support a key value style plugin definition similar to NvChad:
+      -- ["ray-x/lsp_signature.nvim"] = {
       --   event = "BufRead",
       --   config = function()
       --     require("lsp_signature").setup()
@@ -184,15 +281,20 @@ local config = {
           })
         end
       end
-      return config -- return final config table
+      return config -- return final config table to use in require("null-ls").setup(config)
     end,
-    treesitter = {
+    treesitter = { -- overrides `require("treesitter").setup(...)`
       ensure_installed = { "lua" },
     },
-    ["nvim-lsp-installer"] = {
-      ensure_installed = { "sumneko_lua" },
+    -- use mason-lspconfig to configure LSP installations
+    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
+      -- ensure_installed = { "sumneko_lua" },
     },
-    packer = {
+    -- use mason-tool-installer to configure DAP/Formatters/Linter installation
+    ["mason-tool-installer"] = { -- overrides `require("mason-tool-installer").setup(...)`
+      -- ensure_installed = { "prettier", "stylua" },
+    },
+    packer = { -- overrides `require("packer").setup(...)`
       compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
     },
     telescope = {
@@ -207,21 +309,6 @@ local config = {
     -- Extend filetypes
     filetype_extend = {
       javascript = { "javascriptreact" },
-    },
-  },
-
-  -- Modify which-key registration
-  ["which-key"] = {
-    -- Add bindings
-    register_mappings = {
-      -- first key is the mode, n == normal mode
-      n = {
-        -- second key is the prefix, <leader> prefixes
-        ["<leader>"] = {
-          -- which-key registration table for normal mode, leader prefix
-          -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
-        },
-      },
     },
   },
 
@@ -240,64 +327,25 @@ local config = {
     },
   },
 
-  -- Extend LSP configuration
-  lsp = {
-    -- enable servers that you already have installed without lsp-installer
-    servers = {
-      -- "pyright"
-    },
-    -- easily add or disable built in mappings added during LSP attaching
-    mappings = {
+  -- Modify which-key registration (Use this with mappings table in the above.)
+  ["which-key"] = {
+    -- Add bindings which show up as group name
+    register_mappings = {
+      -- first key is the mode, n == normal mode
       n = {
-        -- ["<leader>lf"] = false -- disable formatting keymap
+        -- second key is the prefix, <leader> prefixes
+        ["<leader>"] = {
+          -- third key is the key to bring up next level and its displayed
+          -- group name in which-key top level menu
+          ["b"] = { name = "Buffer" },
+        },
       },
     },
-    -- add to the server on_attach function
-    -- on_attach = function(client, bufnr)
-    -- end,
-
-    -- override the lsp installer server-registration function
-    -- server_registration = function(server, opts)
-    --   require("lspconfig")[server].setup(opts)
-    -- end,
-
-    -- Add overrides for LSP server settings, the keys are the name of the server
-    ["server-settings"] = {
-      -- example for addings schemas to yamlls
-      -- yamlls = {
-      --   settings = {
-      --     yaml = {
-      --       schemas = {
-      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
-      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-      --       },
-      --     },
-      --   },
-      -- },
-    },
   },
 
-  -- Diagnostics configuration (for vim.diagnostics.config({}))
-  diagnostics = {
-    virtual_text = true,
-    underline = true,
-  },
-
-  mappings = {
-    -- first key is the mode
-    n = {
-      -- second key is the lefthand side of the map
-      ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
-    },
-    t = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
-    },
-  },
-
-  -- This function is run last
-  -- good place to configuring augroups/autocommands and custom filetypes
+  -- This function is run last and is a good place to configuring
+  -- augroups/autocommands and custom filetypes also this just pure lua so
+  -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
     -- Set key binding
     -- Set autocommands
