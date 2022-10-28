@@ -131,7 +131,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-export DISPLAY=:0
 
 
 # Load Angular CLI autocompletion.
