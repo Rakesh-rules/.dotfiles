@@ -116,7 +116,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=$PATH:$HOME/.local/bin
-
+# --- GO ---
+export PATH=$PATH:/usr/local/go/bin
+export GO111MODULE=on
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/asta/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -135,3 +137,8 @@ unset __conda_setup
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  
+

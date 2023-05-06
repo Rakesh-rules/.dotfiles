@@ -2,10 +2,10 @@
 
 ### Install updates and necessary packages
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo add-apt-repository ppa:lazygit-team/release
+# sudo add-apt-repository ppa:neovim-ppa/unstable
+# sudo add-apt-repository ppa:lazygit-team/release
 sudo apt update && sudo apt upgrade
-sudo apt install build-essential neovim neofetch unzip zip fzf lazygit python3-neovim python3-pip 
+sudo apt install build-essential neofetch unzip zip fzf python3-pip 
 
 ### zsh setup
 
@@ -18,14 +18,14 @@ source ~/.zshrc; clear
 zsh_source
 
 ### CUDA 
-wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
-sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/11.4.0/local_installers/cuda-repo-wsl-ubuntu-11-4-local_11.4.0-1_amd64.deb
-sudo dpkg -i cuda-repo-wsl-ubuntu-11-4-local_11.4.0-1_amd64.deb
-sudo apt-key add /var/cuda-repo-wsl-ubuntu-11-4-local/7fa2af80.pub
-sudo apt-get update
-sudo apt-get -y install cuda
-rm cuda-repo-wsl-ubuntu-11-4-local_11.4.0-1_amd64.deb
+# wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+# sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+# wget https://developer.download.nvidia.com/compute/cuda/11.4.0/local_installers/cuda-repo-wsl-ubuntu-11-4-local_11.4.0-1_amd64.deb
+# sudo dpkg -i cuda-repo-wsl-ubuntu-11-4-local_11.4.0-1_amd64.deb
+# sudo apt-key add /var/cuda-repo-wsl-ubuntu-11-4-local/7fa2af80.pub
+# sudo apt-get update
+# sudo apt-get -y install cuda
+# rm cuda-repo-wsl-ubuntu-11-4-local_11.4.0-1_amd64.deb
 
 ### Conda and Pytorch install
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
@@ -38,7 +38,7 @@ conda create --name torch python=3.8 -y
 conda activate torch
 conda install ipykernel
 conda install nb_conda # jupyter support to new environment
-conda install pytorch torchvision torchtext cudatoolkit -c pytorch # pytorch install
+# conda install pytorch torchvision torchtext cudatoolkit -c pytorch # pytorch install
 conda install tqdm matplotlib pandas spacy
 # python -m ipykernel install --user --name pytorch --display-name "Python 3.7 (pytorch)"
 
@@ -52,10 +52,10 @@ node -v
 zsh_source
 
 ## linter and formatter
-npm install -g prettier
-npm insall -g eslint
-pip install --upgrade autopep8
-pip install flake8
+# npm install -g prettier
+# npm insall -g eslint
+# pip install --upgrade autopep8
+# pip install flake8
 
 
 ## Npm packages
@@ -63,18 +63,26 @@ npm install -g @angular/cli
 npm install -g @ionic/cli
 
 ### Astro Vim setup (This one has plenty of Vim conf and I'm feeling lazy to do it up on my own)
-git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
-nvim +PackerSync
-ln -s ~/.dotfiles/user ~/.config/nvim/lua/user
-zsh_source
-nvim -c ":LspInstall html cssls tsserver pyright prosemd_lsp eslint angularls"
-nvim -c ":TSInstall html css javascript markdown tsx typescript python"
+# git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
+# nvim +PackerSync
+# ln -s ~/.dotfiles/user ~/.config/nvim/lua/user
+# zsh_source
+# nvim -c ":LspInstall html cssls tsserver pyright prosemd_lsp eslint angularls"
+# nvim -c ":TSInstall html css javascript markdown tsx typescript python"
 
 ### NeoVim win32yank setup - For freezing issue when paste
-curl -sLo/tmp/win32yank.zip https://github.com/robertbrunhage/win32yank/releases/download/v0.0.5/win32yank-x64.zip
-unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
-chmod +x /tmp/win32yank.exe
-sudo mv /tmp/win32yank.exe /usr/local/bin/
+# curl -sLo/tmp/win32yank.zip https://github.com/robertbrunhage/win32yank/releases/download/v0.0.5/win32yank-x64.zip
+# unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+# chmod +x /tmp/win32yank.exe
+# sudo mv /tmp/win32yank.exe /usr/local/bin/
+
+### GO Install
+
+# wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz
+# sudo tar -C /usr/local/ -xzf go1.13.5.linux-amd64.tar.gz
+# cd /usr/local/
+# zsh_source
+# go version
 
 ### Git email username setup
 
