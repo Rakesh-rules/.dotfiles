@@ -51,7 +51,8 @@ flatpak -y install org.videolan.VLC \
     com.google.Chrome \
     org.gimp.GIMP \
     com.obsproject.Studio \
-    com.getpostman.Postman
+    com.getpostman.Postman \
+    com.github.tchx84.Flatseal
 
 ## Need to setup automatic extension installation
 # 1. https://extensions.gnome.org//extension/779/clipboard-indicator/
