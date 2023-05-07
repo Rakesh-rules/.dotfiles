@@ -1,15 +1,3 @@
-# *********************************
-#
-# Hey, 
-# 	I know this is a mess and has no goodies.
-# 	Bear me, I'm a newbie. 
-# 	Maybe come back a few months later for better rc files
-# 
-# *********************************
-# 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -17,14 +5,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="random"
-echo $RANDOM_THEME
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+echo $RANDOM_THEME
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -113,12 +100,9 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 # --- NVM ---
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH=$PATH:$HOME/.local/bin
-# --- GO ---
-export PATH=$PATH:/usr/local/go/bin
-export GO111MODULE=on
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/asta/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -140,5 +124,10 @@ source <(ng completion script)
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Aliases
+alias fl="flatpak"
+alias flr="flatpak run"
+alias code="flatpak run com.visualstudio.code"
+alias update="flatpak update && brew update && sudo apt update"
