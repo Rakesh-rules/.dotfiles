@@ -24,6 +24,7 @@ zsh_source
 
 ## Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+zsh_source
 
 ## Install using nvm and node
 brew install -q nvm
@@ -37,8 +38,11 @@ zsh_source
 ### Npm packages
 npm install -g @angular/cli
 
+# Homebrew installs
+brew install neofetch
+
 # Flatpak installs
-flatpak update
+flatpak -y update
 flatpak -y install org.videolan.VLC \
     com.visualstudio.code \
     com.brave.Browser \

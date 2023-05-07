@@ -13,7 +13,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 ### **Step 2 - Clone repo**
 ```
-git clone https://github.com/Rakes-me/.dotfiles.git ~
+git clone https://github.com/Rakes-me/.dotfiles.git ~/.dotfiles
 ```
 ### **Step 3 - Run installation script**
 > Note : The setup scripts installs softwares necessary for my development setup and replaces local dotfiles with the ones in this repo.

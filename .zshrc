@@ -125,3 +125,9 @@ source <(ng completion script)
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Aliases
+alias fl="flatpak"
+alias flr="flatpak run"
+alias code="flatpak run com.visualstudio.code"
+alias update="flatpak update && brew update && sudo apt update"
