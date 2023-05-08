@@ -3,6 +3,7 @@
 ## Install updates
 
 sudo apt update -y && sudo apt upgrade -y
+sudo apt -y install python3-pip
 
 ## zsh setup
 
@@ -21,6 +22,12 @@ rm Miniconda3-latest-Linux-x86_64.sh
 zsh_source
 conda config --set auto_activate_base false
 zsh_source
+
+## Poetry installation
+curl -sSL https://install.python-poetry.org | python3 -
+zsh_source
+poetry --version
+poetry config virtualenvs.in-project true
 
 ## Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
